@@ -11,8 +11,10 @@ import { FRASES } from './frases-mock';
 export class PainelComponent {
   public frases: Frase[] = FRASES;
   public instrucao: string = 'Traduza a frase:';
+  public resposta: string | undefined;
 
-  atualizaResposta(): void {
-    console.log('teste');
+  atualizaResposta(resposta: Event): void {
+    this.resposta = (<HTMLInputElement>resposta.target).value;
+    console.log(this.resposta);
   }
 }
