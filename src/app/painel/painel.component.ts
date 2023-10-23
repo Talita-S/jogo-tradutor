@@ -18,6 +18,8 @@ export class PainelComponent {
 
   public progresso: number = 0;
 
+  public tentativas: number = 3;
+
   constructor() {
     this.atualizaRodada();
   }
@@ -34,7 +36,11 @@ export class PainelComponent {
 
       this.atualizaRodada();
     } else {
-      alert('A tradução está errada');
+      this.tentativas--;
+
+      if (this.tentativas === -1) {
+        alert('Você perdeu todas as tentativas');
+      }
     }
   }
 
