@@ -13,8 +13,26 @@ export class PainelComponent {
   public instrucao: string = 'Traduza a frase:';
   public resposta: string | undefined;
 
+  public rodada: number = 0;
+  public rodadaFrase: Frase;
+
+  constructor() {
+    this.rodadaFrase = this.frases[this.rodada];
+    console.log(this.rodadaFrase);
+  }
+
   atualizaResposta(resposta: Event): void {
     this.resposta = (<HTMLInputElement>resposta.target).value;
-    console.log(this.resposta);
+  }
+
+  verificarResposta(): void {
+    if (this.rodadaFrase.frasePtBr == this.resposta) {
+      this.rodada++;
+      this.rodadaFrase = this.frases[this.rodada];
+
+      alert('A tradução está correta!');
+    } else {
+      alert('A tradução está errada');
+    }
   }
 }
