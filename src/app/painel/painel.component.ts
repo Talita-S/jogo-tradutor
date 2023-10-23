@@ -16,6 +16,8 @@ export class PainelComponent {
   public rodada: number = 0;
   public rodadaFrase: Frase;
 
+  public progresso: number = 0;
+
   constructor() {
     this.rodadaFrase = this.frases[this.rodada];
     console.log(this.rodadaFrase);
@@ -28,6 +30,9 @@ export class PainelComponent {
   verificarResposta(): void {
     if (this.rodadaFrase.frasePtBr == this.resposta) {
       this.rodada++;
+
+      this.progresso = this.progresso + 100 / this.frases.length;
+
       this.rodadaFrase = this.frases[this.rodada];
 
       alert('A tradução está correta!');
