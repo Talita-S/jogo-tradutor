@@ -20,6 +20,5 @@ export class TentativasComponent implements OnChanges {
       let indice = this.coracoes.length - this.tentativas;
       this.coracoes[indice - 1].cheio = false;
     }
-    console.log('tentativas recebidas do painel: ', this.tentativas);
   }
 }
